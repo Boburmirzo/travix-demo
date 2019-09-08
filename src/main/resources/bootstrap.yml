@@ -1,0 +1,40 @@
+---
+spring:
+  application:
+    name: ${application.name}
+
+logging:
+  path: ${LOGS_PATH:}
+  level:
+    root: ${ROOT_LOGGING_LEVEL:INFO}
+
+application: 
+  name: busyFlights
+  version: ${APP_VERSION:1}
+  description: BusyFlightsService
+
+crazy-air-service:
+  host: localhost
+  path: /crazyair/flights
+
+tough-jet-service:
+  host: localhost
+  path: /toughjet/flights
+
+feign:
+  hystrix:
+    enabled: ${HYSTRIX_ENABLED:false}
+  client:
+    config:
+      crazy-air-service-feign:
+        loggerLevel: full
+        error-decoder: com.travix.medusa.busyflights.domain.crazyair.CrazyAirErrorDecoder
+      tough-jet-service-feign:
+        loggerLevel: full
+        error-decoder: com.travix.medusa.busyflights.domain.toughjet.ToughJetErrorDecoder
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+{
+  "carrier": "DA",
+  "basePrice": 100.0,
+  "tax": 10.0,
+  "discount": 10.0,
+  "departureAirportName": "HG",
+  "arrivalAirportName": "FC",
+  "outboundDateTime": "2010-01-01T12:00:00+01:00",
+  "inboundDateTime": "2010-03-01T12:00:00+01:00"
+}

@@ -1,0 +1,9 @@
+{
+  "airline": "CrazyAir",
+  "price": 10.0,
+  "cabinclass": "DA",
+  "departureAirportCode": "LNR",
+  "destinationAirportCode": "KU",
+  "departureDate": "2010-01-01T12:00:00+01:00",
+  "arrivalDate": "2010-02-01T12:00:00+01:00"
+}

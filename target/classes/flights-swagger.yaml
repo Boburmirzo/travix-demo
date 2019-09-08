@@ -1,0 +1,83 @@
+---
+swagger: "2.0"
+info:
+  title: "Swagger Spec For The Busy flights REST API"
+  description: "This is the Swagger spec for the Busy flights REST API"
+  version: "v1"
+  termsOfService: "http://localhost/terms-and-conditions"
+host: "localhost"
+basePath: "/"
+tags:
+- name: "busy_flights"
+schemes:
+- "http"
+- "https"
+paths:
+  /flights:
+    post:
+      tags:
+      - "flights"
+      summary: ""
+      description: ""
+      operationId: "getFlights"
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/BusyFlightsRequest'
+      responses:
+        201:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/BusyFlightsResponse'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        500:
+          description: Failure
+
+definitions:
+  BusyFlightsRequest:
+    type: object
+    properties:
+      origin:
+        type: string
+      destination:
+        type: string
+      departureDate:
+        type: string
+        format: date
+      returnDate:
+        type: string
+        format: date
+      numberOfPassengers:
+        type: integer
+  BusyFlightsResponse :
+    type: object
+    properties:
+      flight:
+        type: array
+        items:
+          $ref: '#/definitions/Flight'
+  Flight:
+    type: object
+    properties:
+      airline:
+        type: string
+      supplier:
+        type: string
+      fare:
+        type: number
+        format: double
+      departureAirportCode:
+        type: string
+      destinationAirportCode:
+        type: string
+      departureDate:
+        type: string
+        format: date-time
+      arrivalDate:
+        type: string
+        format: date-time
